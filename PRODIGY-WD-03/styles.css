@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #000;
     font-family: Arial, sans-serif;
 }
 
@@ -30,12 +30,36 @@ body {
     cursor: pointer;
 }
 
-.cell:hover {
-    background-color: #e0e0e0;
+.cell.clicked {
+    background-color: #ff0000;
 }
 
 #restart-button {
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
+    background-color: #ff0000;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ccc;
+    padding: 20px;
+    border: 2px solid #000;
+    text-align: center;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
 }
