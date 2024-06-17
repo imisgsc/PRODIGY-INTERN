@@ -5,8 +5,8 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: black; /* Black background */
-    color: white; /* White text color for better contrast */
+    background-color: black;
+    color: white;
 }
 
 .stopwatch {
@@ -14,8 +14,8 @@ body {
 }
 
 #display {
-    font-size: 72px; /* Make the timer part huge */
-    font-weight: bold; /* Bold font for the timer */
+    font-size: 72px;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
@@ -24,10 +24,10 @@ body {
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
-    background-color: red; /* Red buttons */
-    color: white; /* White text color for buttons */
-    border: none; /* Remove default border */
-    border-radius: 10px; /* Curved edges for buttons */
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
 }
 
 #laps {
@@ -37,10 +37,10 @@ body {
 
 #laps div {
     font-size: 14px;
-    font-weight: bold; /* Bold font for lapped times */
-    background-color: #333; /* Greyish background for lapped times */
+    font-weight: bold;
+    background-color: #333;
     padding: 10px;
-    border-radius: 5px; /* Curved edges for lapped times */
+    border-radius: 5px;
     margin-bottom: 5px;
-    color: white; /* White text color for lapped times */
+    color: white;
 }
