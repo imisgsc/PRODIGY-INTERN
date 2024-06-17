@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cells = document.querySelectorAll('.cell');
     const restartButton = document.getElementById('restart-button');
+    const popup = document.createElement('div');
     const winningCombinations = [
         [0, 1, 2],
         [3, 4, 5],
@@ -16,6 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameState = Array(9).fill(null);
     let gameActive = true;
 
+    popup.classList.add('popup');
+    document.body.appendChild(popup);
+
+    function showPopup(message) {
+        popup.innerHTML = `<div>${message}</div><div class="close-btn">&times;</div>`;
+        popup.style.display = 'block';
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    }
+
     function handleCellClick(e) {
         const cell = e.target;
         const cellIndex = parseInt(cell.getAttribute('data-index'));
@@ -26,12 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         gameState[cellIndex] = currentPlayer;
         cell.textContent = currentPlayer;
+        cell.classList.add('clicked');
 
         if (checkWin()) {
-            alert(`Player ${currentPlayer} wins!`);
+            showPopup(`Player ${currentPlayer} wins!`);
             gameActive = false;
         } else if (gameState.every(cell => cell !== null)) {
-            alert('Game is a draw!');
+            showPopup('Game is a draw!');
             gameActive = false;
         } else {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
@@ -48,9 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function restartGame() {
         gameState.fill(null);
-        cells.forEach(cell => cell.textContent = '');
+        cells.forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('clicked');
+        });
         currentPlayer = 'X';
         gameActive = true;
+        popup.style.display = 'none';
     }
 
     cells.forEach(cell => cell.addEventListener('click', handleCellClick));
